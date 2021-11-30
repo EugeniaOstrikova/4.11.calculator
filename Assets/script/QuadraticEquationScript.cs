@@ -6,10 +6,10 @@ using System;
 
 public class QuadraticEquationScript : MonoBehaviour
 {
-    [SerializeField] private GameObject comparingResultText;
-    [SerializeField] private GameObject firstNumInput;
-    [SerializeField] private GameObject secondNumInput;
-    [SerializeField] private GameObject thirdNumInput;
+    [SerializeField] private Text comparingResultText;
+    [SerializeField] private InputField firstNumInput;
+    [SerializeField] private InputField secondNumInput;
+    [SerializeField] private InputField thirdNumInput;
     [SerializeField] private GameObject resetBtn;
     [SerializeField] private GameObject errorMessage;
 
@@ -18,14 +18,14 @@ public class QuadraticEquationScript : MonoBehaviour
     void Start()
     {
         comparingResult = "";
-        comparingResultText.GetComponent<Text>().text = "";
+        comparingResultText.text = "";
     }
 
     public void Deside()
     {
-        string firstNumText = firstNumInput.GetComponent<InputField>().text;
-        string secondNumText = secondNumInput.GetComponent<InputField>().text;
-        string thirdNumText = thirdNumInput.GetComponent<InputField>().text;
+        string firstNumText = firstNumInput.text;
+        string secondNumText = secondNumInput.text;
+        string thirdNumText = thirdNumInput.text;
 
         if ((firstNumText != "" && secondNumText != "") && thirdNumText != "")
         {
@@ -55,7 +55,7 @@ public class QuadraticEquationScript : MonoBehaviour
                 comparingResult = ($"D = {discriminant}; x1 = {x1}; x2 = {x2}");
             }
 
-            comparingResultText.GetComponent<Text>().text = comparingResult;
+            comparingResultText.text = comparingResult;
             errorMessage.SetActive(false);
 
             if (!resetBtn.activeSelf)
@@ -75,10 +75,10 @@ public class QuadraticEquationScript : MonoBehaviour
     {
         resetBtn.SetActive(false);
         comparingResult = "";
-        comparingResultText.GetComponent<Text>().text = "";
-        firstNumInput.GetComponent<InputField>().text = "";
-        secondNumInput.GetComponent<InputField>().text = "";
-        thirdNumInput.GetComponent<InputField>().text = "";
+        comparingResultText.text = "";
+        firstNumInput.text = "";
+        secondNumInput.text = "";
+        thirdNumInput.text = "";
     }
 
 }

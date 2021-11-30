@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OperationsScript : MonoBehaviour
 {
     [SerializeField] public OperationTypes operationType;
-    [SerializeField] private GameObject operationText;
+    [SerializeField] private Text operationText;
     private string text;
 
     void Start()
@@ -29,7 +29,7 @@ public class OperationsScript : MonoBehaviour
                 break;
         }
         
-        operationText.GetComponent<Text>().text = text;
+        operationText.text = text;
     }
 
 }

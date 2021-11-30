@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Comparing3NumScript : MonoBehaviour
 {
-    [SerializeField] private GameObject comparingResultText;
-    [SerializeField] private GameObject firstNumInput;
-    [SerializeField] private GameObject secondNumInput;
-    [SerializeField] private GameObject thirdNumInput;
+    [SerializeField] private Text comparingResultText;
+    [SerializeField] private InputField firstNumInput;
+    [SerializeField] private InputField secondNumInput;
+    [SerializeField] private InputField thirdNumInput;
     [SerializeField] private GameObject resetBtn;
     [SerializeField] private GameObject errorMessage;
 
@@ -18,14 +18,14 @@ public class Comparing3NumScript : MonoBehaviour
     void Start()
     {
         comparingResult = "";
-        comparingResultText.GetComponent<Text>().text = "";
+        comparingResultText.text = "";
     }
 
     public void Compare()
     {
-        string firstNumText = firstNumInput.GetComponent<InputField>().text;
-        string secondNumText = secondNumInput.GetComponent<InputField>().text;
-        string thirdNumText = thirdNumInput.GetComponent<InputField>().text;
+        string firstNumText = firstNumInput.text;
+        string secondNumText = secondNumInput.text;
+        string thirdNumText = thirdNumInput.text;
 
         if ((firstNumText != "" && secondNumText != "") && thirdNumText != "")
         {
@@ -52,7 +52,7 @@ public class Comparing3NumScript : MonoBehaviour
                 comparingResult = "The largest number: " + myInts[2].ToString() + ", " + myInts[1].ToString();
             }
 
-            comparingResultText.GetComponent<Text>().text = comparingResult;
+            comparingResultText.text = comparingResult;
             errorMessage.SetActive(false);
 
             if (!resetBtn.activeSelf)
@@ -72,10 +72,10 @@ public class Comparing3NumScript : MonoBehaviour
     {
         resetBtn.SetActive(false);
         comparingResult = "";
-        comparingResultText.GetComponent<Text>().text = "";
-        firstNumInput.GetComponent<InputField>().text = "";
-        secondNumInput.GetComponent<InputField>().text = "";
-        thirdNumInput.GetComponent<InputField>().text = "";
+        comparingResultText.text = "";
+        firstNumInput.text = "";
+        secondNumInput.text = "";
+        thirdNumInput.text = "";
     }
 
 }

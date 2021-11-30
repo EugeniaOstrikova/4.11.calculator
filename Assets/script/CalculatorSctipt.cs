@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class CalculatorSctipt : MonoBehaviour
 {
     [SerializeField] private OperationTypes currentOperation;
-    [SerializeField] private GameObject operationText;
-    [SerializeField] private GameObject firstNumInput;
-    [SerializeField] private GameObject secondNumInput;
-    [SerializeField] private GameObject resultInput;
+    [SerializeField] private Text operationText;
+    [SerializeField] private InputField firstNumInput;
+    [SerializeField] private InputField secondNumInput;
+    [SerializeField] private InputField resultInput;
     [SerializeField] private GameObject resetBtn;
     [SerializeField] private GameObject errorMessage;
 
@@ -20,7 +20,7 @@ public class CalculatorSctipt : MonoBehaviour
     {
         currentOperationText = "";
         resultText = "";
-        operationText.GetComponent<Text>().text = "";
+        operationText.text = "";
     }
 
     public void SelectOperation(GameObject operationBtn)
@@ -46,13 +46,13 @@ public class CalculatorSctipt : MonoBehaviour
                 break;
         }
 
-        operationText.GetComponent<Text>().text = currentOperationText;
+        operationText.text = currentOperationText;
     }
 
     public void Calculate()
     {
-        string firstNumText = firstNumInput.GetComponent<InputField>().text;
-        string secondNumText = secondNumInput.GetComponent<InputField>().text;
+        string firstNumText = firstNumInput.text;
+        string secondNumText = secondNumInput.text;
 
         if ((firstNumText != "" && secondNumText != "") && currentOperation != OperationTypes.None)
         {
@@ -82,7 +82,7 @@ public class CalculatorSctipt : MonoBehaviour
             }
 
             resultText = result.ToString();
-            resultInput.GetComponent<InputField>().text = resultText;
+            resultInput.text = resultText;
             errorMessage.SetActive(false);
 
             if (!resetBtn.activeSelf)
@@ -103,9 +103,9 @@ public class CalculatorSctipt : MonoBehaviour
         currentOperation = OperationTypes.None;
         currentOperationText = "";
         resultText = "";
-        operationText.GetComponent<Text>().text = "";
-        firstNumInput.GetComponent<InputField>().text = "";
-        secondNumInput.GetComponent<InputField>().text = "";
-        resultInput.GetComponent<InputField>().text = "";
+        operationText.text = "";
+        firstNumInput.text = "";
+        secondNumInput.text = "";
+        resultInput.text = "";
     }
 }

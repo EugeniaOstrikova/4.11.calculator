@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Comparing2NumScript : MonoBehaviour
 {
-    [SerializeField] private GameObject comparingResultText;
-    [SerializeField] private GameObject firstNumInput;
-    [SerializeField] private GameObject secondNumInput;
+    [SerializeField] private Text comparingResultText;
+    [SerializeField] private InputField firstNumInput;
+    [SerializeField] private InputField secondNumInput;
     [SerializeField] private GameObject resetBtn;
     [SerializeField] private GameObject errorMessage;
 
@@ -16,13 +16,13 @@ public class Comparing2NumScript : MonoBehaviour
     void Start()
     {
         comparingResult = "";
-        comparingResultText.GetComponent<Text>().text = "";
+        comparingResultText.text = "";
     }
 
     public void Compare()
     {
-        string firstNumText = firstNumInput.GetComponent<InputField>().text;
-        string secondNumText = secondNumInput.GetComponent<InputField>().text;
+        string firstNumText = firstNumInput.text;
+        string secondNumText = secondNumInput.text;
 
         if (firstNumText != "" && secondNumText != "")
         {
@@ -42,7 +42,7 @@ public class Comparing2NumScript : MonoBehaviour
                 comparingResult = "<";
             }
 
-            comparingResultText.GetComponent<Text>().text = comparingResult;
+            comparingResultText.text = comparingResult;
             errorMessage.SetActive(false);
 
             if (!resetBtn.activeSelf)
@@ -62,9 +62,9 @@ public class Comparing2NumScript : MonoBehaviour
     {
         resetBtn.SetActive(false);
         comparingResult = "";
-        comparingResultText.GetComponent<Text>().text = "";
-        firstNumInput.GetComponent<InputField>().text = "";
-        secondNumInput.GetComponent<InputField>().text = "";
+        comparingResultText.text = "";
+        firstNumInput.text = "";
+        secondNumInput.text = "";
     }
 
 }
